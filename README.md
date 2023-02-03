@@ -1,6 +1,9 @@
 # Whisper Mic
 This repo is based on the work done [here](https://github.com/openai/whisper) by OpenAI.  This repo allows you use use a mic as demo. This repo copies some of the README from original project.
 
+# This fork's additions
+mic_exec.py has the ability to run scripts if you say the name of a script in the directory you specified with --scriptpath
+
 ## Video Tutorial
 
 See the video tutorial for this repo [here](https://www.youtube.com/watch?v=nwPaRSlDSaY)
