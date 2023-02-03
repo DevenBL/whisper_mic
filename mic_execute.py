@@ -37,7 +37,8 @@ def main(model, english,verbose, energy, pause,dynamic_energy,save_file,device,s
     threading.Thread(target=transcribe_forever,
                      args=(audio_queue, result_queue, audio_model, english, verbose, save_file)).start()
     
-    acceptablescripttypes = ('.bash','.py')
+    # i could add more file extensions here but honestly add them yourself
+    acceptablescripttypes = ('.bash','.py','.pyw','.bat','.sh','.zsh','.ps1')
 # for when i figure out how to make this execute from multiple directories
 #    for dirs in scriptpath:
     dirs = scriptpath
