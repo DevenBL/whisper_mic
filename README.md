@@ -3,6 +3,7 @@ This repo is based on the work done [here](https://github.com/openai/whisper) by
 
 # This fork's additions
 mic_exec.py has the ability to run scripts if you say the name of a script in the directory you specified with --scriptpath
+Right now --scriptpath is a mandatory option with no error handling
 
 ## Video Tutorial
 
