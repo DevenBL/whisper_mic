@@ -53,7 +53,7 @@ def main(model, english,verbose, energy, pause,dynamic_energy,save_file,device,s
              for skrtypes in acceptablescripttypes:
                   if keywords.endswith(skrtypes) and keywords.removesuffix(skrtypes).upper() in model_output.upper():
              	      print("keyword recognized: " + str(keywords.removesuffix(skrtypes)))
-             	      os.system('exec ' + '"' + dirs + keywords + '"')
+             	      os.system('exec ' + '"' + dirs + keywords + '" &')
 
 def record_audio(audio_queue, energy, pause, dynamic_energy, save_file, temp_dir):
     #load the speech recognizer and set the initial energy threshold and pause threshold
