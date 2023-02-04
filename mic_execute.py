@@ -44,7 +44,7 @@ def main(model, english,verbose, energy, pause,dynamic_energy,save_file,device,s
     dirs = scriptpath
     keywordlist = [scriptfile for scriptfile in listdir(dirs) if isfile(join(dirs, scriptfile)) and scriptfile.endswith(acceptablescripttypes) ]
     
-    print(keywordlist)
+    print('List of keywords: ' + keywordlist)
     
     while True:
         model_output = result_queue.get()
