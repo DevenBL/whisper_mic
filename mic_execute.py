@@ -38,13 +38,13 @@ def main(model, english,verbose, energy, pause,dynamic_energy,save_file,device,s
                      args=(audio_queue, result_queue, audio_model, english, verbose, save_file)).start()
     
     # i could add more file extensions here but honestly add them yourself
-    acceptablescripttypes = ('.bash','.py','.pyw','.bat','.sh','.zsh','.ps1')
+    acceptablescripttypes = ('.bash','.py')
 # for when i figure out how to make this execute from multiple directories
 #    for dirs in scriptpath:
     dirs = scriptpath
+
     keywordlist = [scriptfile for scriptfile in listdir(dirs) if isfile(join(dirs, scriptfile)) and scriptfile.endswith(acceptablescripttypes) ]
-    
-    print('List of keywords: ' + keywordlist)
+    print("Keyword list :" + str(keywordlist))
     
     while True:
         model_output = result_queue.get()
