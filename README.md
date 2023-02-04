@@ -16,7 +16,7 @@ See the video tutorial for this repo [here](https://www.youtube.com/watch?v=nwPa
 
 ## Available models and languages
 
-There are five model sizes, four with English-only versions, offering speed and accuracy tradeoffs. Below are the names of the available models and their approximate memory requirements and relative speed. 
+There are five model sizes, four with English-only versions, offering speed and accuracy tradeoffs. Below are the names of the available models and their approximate memory requirements and relative speed. *for cpu inference ram requirement is the same as vram requirement
 
 
 |  Size  | Parameters | English-only model | Multilingual model | Required VRAM | Relative speed |
