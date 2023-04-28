@@ -1,20 +1,19 @@
 # Whisper Mic
-This repo is based on the work done [here](https://github.com/openai/whisper) by OpenAI.  This repo allows you use use a mic as demo. This repo copies some of the README from original project.
+This repo is based on the work done [here](https://github.com/openai/whisper) by OpenAI.  This repo allows you use use a mic to run scripts. This repo copies some of the README from original project.
 
 ## Video Tutorial
 
-See the video tutorial for this repo [here](https://www.youtube.com/watch?v=nwPaRSlDSaY)
-
+See the video tutorial for this repo [here](https://www.youtube.com/watch?v=nwPaRSlDSaY). This is a fork of [here](https://github.com/mallorbc/whisper_mic) the video may not be relevant
 ### Professional Assistance
 
-If are in need of paid professional help, that is available through this [email](mailto:blakecmallory@gmail.com)
+If are in need of paid professional help, that is available through this [email](mailto:deven.boutin@gmail.com)
 
 ## Setup
 
 Now a pip package!
 
 1. Create a venv of your choice.
-2. Run ```pip install whisper-mic```
+2. Run ```pip install whisper-voice-commands```
 
 ## Available models and languages
 
@@ -33,13 +32,13 @@ For English-only applications, the `.en` models tend to perform better, especial
 
 ## Microphone Demo
 
-You can use the model with a microphone using the ```whisper_mic``` program.  Use ```-h``` to see flag options.
+You can use the model with a microphone using the ```whisper-voice-commands``` program.  Use ```-h``` to see flag options.
 
 Some of the more important flags are the ```--model``` and ```--english``` flags.
 
 ## Troubleshooting
 
-If you are having issues with the ```mic.py``` not running try the following:
+If you are having issues with the ```cli.py``` not running try the following:
 ```
 sudo apt install portaudio19-dev python3-pyaudio
 ```
