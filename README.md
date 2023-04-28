@@ -19,7 +19,7 @@ Now a pip package!
 ```
 whisper-voice-commands --model tiny --script_path ~youruser/scripts/ --english --ambient --dynamic_energy
 ```
-Check ```whisper-voice-commands --help for more details```
+Check ```whisper-voice-commands --help ``` for more details
 
 ## Available models and languages
 
