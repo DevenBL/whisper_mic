@@ -3,12 +3,13 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "whisper_mic"
-version = "0.0.1"
+name = "whisper_voice_commands"
+version = "0.0.2"
 authors = [
+  { name="Deven B-L", email="deven.boutin@gmail.com" },
   { name="Blake Mallory", email="blakecmallory@gmail.com" },
 ]
-description = "Whisper for your microphone"
+description = "Execute scripts with Whisper for your microphone"
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
@@ -35,5 +36,10 @@ dependencies = [
 ]
 
 [project.scripts]
-whisper_mic = "whisper_mic.cli:main"
+whisper-voice-commands = "whisper_mic.cli:main"
 
+
+
+[project.urls]
+"Homepage" = "https://github.com/DevenBL/whisper_mic_exec/tree/Whisper-Voice-Commands"
+"Bug Tracker" = "https://github.com/DevenBL/whisper_mic_exec/tree/Whisper-Voice-Commands/issues"
