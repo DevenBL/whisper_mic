@@ -24,8 +24,8 @@ from os.path import isfile, join
 @click.option("--verbose", default=False, help="Whether to print verbose output", is_flag=True,type=bool)
 @click.option("--energy", default=300, help="Energy level for mic to detect", type=int)
 @click.option("--dynamic_energy", default=False,is_flag=True, help="Flag to enable dynamic energy", type=bool)
-@click.option("--pause", default=0.1, help="Pause time before entry ends", type=float)
-@click.option("--phrase_length", default=0.8, help="minimum sound length for transcription to start (set to 0.3 to transcribe basically everything default 0.8 )", type=float)
+@click.option("--pause", default=0.5, help="Pause time before entry ends", type=float)
+@click.option("--phrase_length", default=0.4, help="minimum sound length for transcription to start (set to 0.3 to transcribe basically everything, for a low false positive rate 0.8 )", type=float)
 @click.option("--save_file",default=False, help="Flag to save file", is_flag=True,type=bool)
 def main(model, english,verbose, energy, pause,dynamic_energy,save_file,device,script_path,script_extensions,ambient,phrase_length):
     temp_dir = tempfile.mkdtemp() if save_file else None
