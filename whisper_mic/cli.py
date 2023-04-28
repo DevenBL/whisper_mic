@@ -14,7 +14,7 @@ from os.path import isfile, join
 
 @click.command()
 @click.option("--model", default="base", help="Model to use", type=click.Choice(["tiny","base", "small","medium","large"]))
-@click.option("--device", default=("cuda" if torch.cuda.is_available() else "cpu"), help="Device to use", type=click.Choice(["cpu","cuda"]))
+@click.option("--device", default=("cuda" if torch.cuda.is_available() else "cpu"), help="Device to use cpu, cuda, ???", type=str)
 @click.option("--script_path", default=(os.getcwd()), help="runs scripts in provided directory based on if the filename can be found in the model output ex: 'computer run whisper.bash' ", type=click.Path())
 # for when i figure out how to make this search and execute from multiple directories
 # @click.option("--script_path", help="runs scripts in script_path directories based on keywords", multiple=True, type=click.Path())
