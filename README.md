@@ -15,6 +15,10 @@ Now a pip package!
 1. Create a venv of your choice.
 2. Run ```pip install whisper-voice-commands```
 
+## Example usage
+```
+whisper-voice-commands --model tiny --script_path ~youruser/scripts/ --english --ambient --dynamic_energy
+```
 ## Available models and languages
 
 There are five model sizes, four with English-only versions, offering speed and accuracy tradeoffs. Below are the names of the available models and their approximate memory requirements and relative speed. 
