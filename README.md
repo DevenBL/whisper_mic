@@ -19,6 +19,8 @@ Now a pip package!
 ```
 whisper-voice-commands --model tiny --script_path ~youruser/scripts/ --english --ambient --dynamic_energy
 ```
+Check ```whisper-voice-commands --help for more details```
+
 ## Available models and languages
 
 There are five model sizes, four with English-only versions, offering speed and accuracy tradeoffs. Below are the names of the available models and their approximate memory requirements and relative speed. 
