@@ -24,9 +24,10 @@ from os.path import isfile, join
 @click.option("--verbose", default=False, help="Whether to print verbose output", is_flag=True,type=bool)
 @click.option("--energy", default=300, help="Energy level for mic to detect", type=int)
 @click.option("--dynamic_energy", default=False,is_flag=True, help="Flag to enable dynamic energy", type=bool)
-@click.option("--pause", default=0.8, help="Pause time before entry ends", type=float)
+@click.option("--pause", default=0.1, help="Pause time before entry ends", type=float)
+@click.option("--phrase_length", default=0.8, help="minimum sound length for transcription to start (set to 0.3 to transcribe basically everything default 0.8 )", type=float)
 @click.option("--save_file",default=False, help="Flag to save file", is_flag=True,type=bool)
-def main(model, english,verbose, energy, pause,dynamic_energy,save_file,device,script_path,script_extensions,ambient):
+def main(model, english,verbose, energy, pause,dynamic_energy,save_file,device,script_path,script_extensions,ambient,phrase_length):
     temp_dir = tempfile.mkdtemp() if save_file else None
     #there are no english models for large
     if model != "large" and english:
@@ -35,7 +36,7 @@ def main(model, english,verbose, energy, pause,dynamic_energy,save_file,device,s
     audio_queue = queue.Queue()
     result_queue = queue.Queue()
     threading.Thread(target=record_audio,
-                     args=(audio_queue, energy, pause, dynamic_energy, save_file, temp_dir, ambient)).start()
+                     args=(audio_queue, energy, pause, dynamic_energy, save_file, temp_dir, ambient, phrase_length)).start()
     threading.Thread(target=transcribe_forever,
                      args=(audio_queue, result_queue, audio_model, english, verbose, save_file)).start()
     
@@ -64,13 +65,18 @@ def main(model, english,verbose, energy, pause,dynamic_energy,save_file,device,s
 def getnewkeywordlist(script_path, acceptablescripttypes):
     return [scriptfile for scriptfile in listdir(script_path) if isfile(join(script_path, scriptfile)) and scriptfile.endswith(acceptablescripttypes) ]          
     
-def record_audio(audio_queue, energy, pause, dynamic_energy, save_file, temp_dir, ambient):
+def record_audio(audio_queue, energy, pause, dynamic_energy, save_file, temp_dir, ambient, phrase_length):
     #load the speech recognizer and set the initial energy threshold and pause threshold
     r = sr.Recognizer()
     r.energy_threshold = energy
+    if pause < r.non_speaking_duration:
+        r.non_speaking_duration = pause
     r.pause_threshold = pause
     r.dynamic_energy_threshold = dynamic_energy
-
+    r.phrase_threshold = phrase_length
+    # r.dynamic_energy_adjustment_ratio = 600
+    # r.dynamic_energy_adjustment_damping = 0.1
+    
     with sr.Microphone(sample_rate=16000) as source:
         if ambient == True:
             print("Calibrating microphone for ambient noise...")
