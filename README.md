@@ -67,3 +67,6 @@ This code under this repo is under the MIT license.  See [LICENSE](LICENSE) for 
 
 ## Thanks
 Until recently, access to high performing speech to text models was only available through paid serviecs.  With this release, I am excited for the many applications that will come.
+
+## Todo
+port to a faster platform like faster whisper or whisper.cpp and get it running on the pinephone
